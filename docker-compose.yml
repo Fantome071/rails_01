@@ -1,0 +1,15 @@
+version: '3.6'
+
+
+services:
+  app_ruby:
+    container_name: app_ruby_rails
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f /app/tmp/pids/server.pid && rails server -b 0.0.0.0 -p 3000"
+    volumes:
+    - ./:/app:rw
+    ports:
+    - 3000:3000
+    restart: unless-stopped
