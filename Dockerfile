@@ -15,7 +15,8 @@ RUN bundle update --bundler
 RUN apt-get update && apt-get install -y nodejs libsqlite3-dev
 
 # Update Dependencies for development
-RUN bundle install --without production
+RUN bundle config set without 'production'
+RUN bundle install
 
 # Copy Source code of app
 COPY . /app

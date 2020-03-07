@@ -54,3 +54,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Open Food Facts API https://github.com/openfoodfacts/openfoodfacts-ruby
+gem 'openfoodfacts', '~> 0.5.1'
