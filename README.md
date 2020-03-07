@@ -12,9 +12,12 @@
     - [Launch Command Production](#launch-command-production)
     - [UTBM Proxy](#utbm-proxy)
     - [Docker Compose Build UTBM Proxy](#docker-compose-build-utbm-proxy)
-    - [Docker Compose Start (and build on personnal PC)](#docker-compose-start-and-build-on-personnal-pc)
+    - [Docker Compose Start Personnal PC](#docker-compose-start-personnal-pc)
+    - [Docker Compose Start UTBM](#docker-compose-start-utbm)
   - [API REST](#api-rest)
   - [Open Food Facts API](#open-food-facts-api)
+    - [Add Field For Code For Open Food Facts](#add-field-for-code-for-open-food-facts)
+  - [Windows SSL Error](#windows-ssl-error)
 
 ## Create Command
 
@@ -58,9 +61,13 @@ Dependencies check must be done.
     --build-arg "http_proxy=http://proxy.utbm.fr:3128" \
     --build-arg "https_proxy=http://proxy.utbm.fr:3128"
 
-### Docker Compose Start (and build on personnal PC)
+### Docker Compose Start Personnal PC
 
     docker-compose up -d
+
+### Docker Compose Start UTBM
+
+    docker-compose -f ./docker-compose_UTBM.yml up -d
 
 ## API REST
 
@@ -73,3 +80,13 @@ To get data from web application Rails, go to : [http://localhost:3000/burgers.j
     code = "3029330003533"
     product = Openfoodfacts::Product.get(code, locale: 'fr')
     product
+
+### Add Field For Code For Open Food Facts
+
+    rails generate migration add_code_to_burger code:string
+
+Next you have to change in Views and Controllers to add the field
+
+## Windows SSL Error
+
+To fix Windows SSL Error : [SSL Error](https://stackoverflow.com/questions/37336526/getting-ssl-error-in-ruby-on-windows)

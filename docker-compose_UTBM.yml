@@ -8,6 +8,11 @@ services:
       context: .
       dockerfile: Dockerfile
     command: bash -c "rm -f /app/tmp/pids/server.pid && rails db:migrate RAILS_ENV=development && rails server -b 0.0.0.0 -p 3000"
+    environment:
+    - HTTP_PROXY=http://proxy.utbm.fr:3128
+    - HTTPS_PROXY=http://proxy.utbm.fr:3128
+    - http_proxy=http://proxy.utbm.fr:3128
+    - https_proxy=http://proxy.utbm.fr:3128
     volumes:
     - ./:/app:rw
     ports:
