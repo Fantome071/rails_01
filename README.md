@@ -16,6 +16,7 @@
     - [Docker Compose Start UTBM](#docker-compose-start-utbm)
   - [API REST](#api-rest)
   - [Open Food Facts API](#open-food-facts-api)
+  - [Open Food Facts API Test](#open-food-facts-api-test)
     - [Add Field For Code For Open Food Facts](#add-field-for-code-for-open-food-facts)
   - [Windows SSL Error](#windows-ssl-error)
 
@@ -80,6 +81,12 @@ To get data from web application Rails, go to : [http://localhost:3000/burgers.j
     code = "3029330003533"
     product = Openfoodfacts::Product.get(code, locale: 'fr')
     product
+
+## Open Food Facts API Test
+
+    rails console
+    test = Burger.find(2)
+    test.nutriments
 
 ### Add Field For Code For Open Food Facts
 
